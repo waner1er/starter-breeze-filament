@@ -1,0 +1,17 @@
+.pages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+
+    &__item {
+        background: #fff;
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        &:hover {
+            background: rgba(0,0,0,0.05);
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+    }
+
+}

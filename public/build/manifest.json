@@ -1,0 +1,31 @@
+{
+  "_module.esm-7c481ac2.js": {
+    "file": "assets/module.esm-7c481ac2.js"
+  },
+  "resources/assets/public/js/guest.js": {
+    "file": "assets/guest-a2737204.js",
+    "imports": [
+      "_module.esm-7c481ac2.js"
+    ],
+    "isEntry": true,
+    "src": "resources/assets/public/js/guest.js"
+  },
+  "resources/assets/public/scss/guest.scss": {
+    "file": "assets/guest-e204b424.css",
+    "isEntry": true,
+    "src": "resources/assets/public/scss/guest.scss"
+  },
+  "resources/assets/user/css/app.css": {
+    "file": "assets/app-8380081c.css",
+    "isEntry": true,
+    "src": "resources/assets/user/css/app.css"
+  },
+  "resources/assets/user/js/app.js": {
+    "file": "assets/app-a2737204.js",
+    "imports": [
+      "_module.esm-7c481ac2.js"
+    ],
+    "isEntry": true,
+    "src": "resources/assets/user/js/app.js"
+  }
+}

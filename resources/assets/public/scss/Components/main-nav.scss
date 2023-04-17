@@ -1,0 +1,39 @@
+.main-nav {
+    background-color: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-bg-secondary);
+    box-shadow: var(--box-shadow) var(--color-shadow);
+    display: flex;
+    margin: 1rem 0;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 1;
+
+    &__items {
+        &__item {
+            &__link {
+                position: relative;
+                .tooltip {
+                    visibility: hidden;
+                    position: absolute;
+                    top:25px;
+                    font-size: var(--font-size-small);
+                    left:0;
+                    z-index: 1;
+                    white-space: nowrap;
+                    min-width: fit-content;
+                    background: var(--color-secondary-accent);
+
+                }
+                &:hover {
+                    .tooltip {
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+    }
+
+    &__login {
+        padding: 0 2rem;
+    }
+}
