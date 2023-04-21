@@ -17,10 +17,10 @@ class Menu extends Model
         'class',
         'icon',
         'color',
-        'page_id'
+        'page_id',
     ];
 
-    public function page():HasOne
+    public function page(): HasOne
     {
         return $this->hasOne(Page::class, 'id', 'page_id');
     }

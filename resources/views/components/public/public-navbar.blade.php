@@ -17,6 +17,23 @@
                 @endif
             </li>
         @endforeach
+        <li class="main-nav__items__item">
+            <a href="{{ route('blog.public-index') }}"
+               class="main-nav__items__item__link">
+                {{__('Blog')}}
+            </a>
+            <div class="dropdown">
+                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                    @foreach($blogs as $blog)
+                        <li>
+                            <a href="{{route('blog.show', ['blog' => $blog])}}">
+                                {{ $blog->title }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </li>
     </ul>
     @if (Route::has('login'))
         <div class="main-nav__login">

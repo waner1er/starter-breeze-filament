@@ -39,7 +39,14 @@
 <body class="">
 <div class="">
     <x-public.public-navbar/>
-    <div class="container">
+    <h1 class="container">
+        @if (isset($title))
+            <header >
+                <H1>
+                    {{ $title }}
+                </h1>
+            </header>
+        @endif
         {{ $slot }}
     </div>
 </div>

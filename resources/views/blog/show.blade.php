@@ -1,6 +1,6 @@
 <x-public-layout>
     <x-slot name="title">
-        Home
+        {{ $blog->title }}
     </x-slot>
-    Homepage
+    {{ $blog->content }}
 </x-public-layout>

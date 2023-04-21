@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -15,15 +14,15 @@ class BlogController extends Controller
     public function index()
     {
         return view('blog.index', [
-            'posts' => auth()->user()->blogs()->get(),
+            'posts' => Blog::where('user_id', auth()->user()->id)->get(),
         ]);
     }
 
     public function publicIndex()
     {
         return view('blog.public', [
-                'posts' => Blog::all()->where('published', true),
-            ]
+            'posts' => Blog::all()->where('published', true),
+        ]
         );
     }
 
@@ -33,6 +32,7 @@ class BlogController extends Controller
     public function create()
     {
         $categories = Category::all();
+
         return view('blog.create', [
             'categories' => $categories,
         ]);
@@ -55,7 +55,6 @@ class BlogController extends Controller
             'published' => 'boolean',
         ]);
 
-
         Blog::create($request->all());
 
         return redirect()->route('blog.index');
@@ -64,9 +63,11 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Blog $blog)
     {
-        //
+        return view('blog.show', [
+            'blog' => $blog,
+        ]);
     }
 
     /**

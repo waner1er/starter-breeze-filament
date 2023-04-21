@@ -10,18 +10,27 @@ use Livewire\WithFileUploads;
 
 class CreateForm extends Component
 {
-
     use WithFileUploads;
 
     public $title;
+
     public $slug;
+
     public $content;
+
     public $excerpt;
+
     public $image;
+
     public $image_alt;
+
     public $user_id;
+
     public $categories;
+
     public $category_id;
+
+    public $published;
 
     public function mount()
     {
@@ -34,10 +43,11 @@ class CreateForm extends Component
 
         $this->validate([
             'title' => 'required',
-            'slug' => 'required',
+            'slug' => 'required|unique:blogs',
             'content' => 'required',
             'excerpt' => 'required',
             'category_id' => 'required',
+
         ]);
 
         $this->slug = Str::slug($this->slug);
@@ -47,10 +57,11 @@ class CreateForm extends Component
             'slug' => $this->slug,
             'content' => $this->content,
             'excerpt' => $this->excerpt,
-            'image' => $this->image,
+            'image' => $this->image->store('images', 'public'),
             'image_alt' => $this->image_alt,
             'user_id' => auth()->user()->id,
             'category_id' => $this->category_id,
+            'published' => $this->published,
         ]);
 
 //        $this->reset();

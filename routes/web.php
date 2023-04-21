@@ -25,6 +25,7 @@ Route::get('/dashboard', function () {
     if (auth()->user()->role === 'admin') {
         return redirect()->route('filament.auth.login');
     }
+
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -38,8 +39,7 @@ Route::prefix('user')->middleware('auth')->group(function () {
     Route::get('/blog/{blog:slug}/edit', [BlogController::class, 'edit'])->name('blog.edit');
 });
 
-
 Route::get('/blog', [BlogController::class, 'publicIndex'])->name('blog.public-index');
 Route::get('/blog/{blog:slug}', [BlogController::class, 'show'])->name('blog.show');
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

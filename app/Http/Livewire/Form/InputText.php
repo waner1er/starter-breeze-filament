@@ -7,6 +7,7 @@ use Livewire\Component;
 class InputText extends Component
 {
     public $name;
+
     public $label;
 
     public function render()

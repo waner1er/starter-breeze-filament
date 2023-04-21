@@ -25,5 +25,6 @@ class RedirectFilament
             }
         }
 
-        return $next($request);    }
+        return $next($request);
+    }
 }
